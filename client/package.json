@@ -1,11 +1,11 @@
-{
+﻿{
   "name": "digital-archaeologist-client",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -27,3 +27,4 @@
     "vite": "^5.4.1"
   }
 }
+
