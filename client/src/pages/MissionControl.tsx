@@ -5,19 +5,19 @@ export default function MissionControl({ archiveId }: { archiveId: string | null
   const [recs, setRecs] = useState<any[]>([]);
 
   const fetchRecs = () => {
-    if (archiveId) fetch(`/api/archives/${archiveId}`).then(r => r.json()).then(d => setRecs(d.recommendations || []));
+    if (archiveId) fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}`).then(r => r.json()).then(d => setRecs(d.recommendations || []));
   };
   useEffect(() => { fetchRecs(); }, [archiveId]);
 
   const updateStatus = async (recId: string, status: string) => {
-    await fetch(`/api/archives/${archiveId}/recommendations/${recId}`, {
+    await fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}/recommendations/${recId}`, {
       method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status })
     });
     fetchRecs();
   };
 
   const handleExport = () => {
-    window.open(`/api/archives/${archiveId}/export?format=csv`, '_blank');
+    window.open(`https://YOUR-URL.onrender.com/api/archives/${archiveId}/export?format=csv`, '_blank');
   };
 
   return (

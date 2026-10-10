@@ -6,7 +6,7 @@ export default function ArchiveExplorer({ archiveId }: { archiveId: string | nul
   const [uploading, setUploading] = useState(false);
 
   const fetchFiles = () => {
-    if (archiveId) fetch(`/api/archives/${archiveId}`).then(r => r.json()).then(d => setFiles(d.files || []));
+    if (archiveId) fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}`).then(r => r.json()).then(d => setFiles(d.files || []));
   };
   useEffect(() => { fetchFiles(); }, [archiveId]);
 
@@ -15,13 +15,13 @@ export default function ArchiveExplorer({ archiveId }: { archiveId: string | nul
     setUploading(true);
     const formData = new FormData();
     Array.from(e.target.files).forEach(f => formData.append("files", f));
-    await fetch(`/api/archives/${archiveId}/files`, { method: "POST", body: formData });
+    await fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}/files`, { method: "POST", body: formData });
     setUploading(false);
     fetchFiles();
   };
 
   const handleDelete = async (fileId: string) => {
-    await fetch(`/api/archives/${archiveId}/files/${fileId}`, { method: "DELETE" });
+    await fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}/files/${fileId}`, { method: "DELETE" });
     fetchFiles();
   };
 

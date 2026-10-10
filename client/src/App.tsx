@@ -35,8 +35,8 @@ const Sidebar = () => {
 
 export default function App() {
   const [archiveId, setArchiveId] = useState<string | null>(localStorage.getItem("archiveId"));
-  const createArchive = async () => { const res = await fetch("/api/archives", { method: "POST" }); const data = await res.json(); setArchiveId(data.id); localStorage.setItem("archiveId", data.id); };
-  const loadSample = async () => { const res = await fetch("/api/archives/sample", { method: "POST" }); const data = await res.json(); setArchiveId(data.id); localStorage.setItem("archiveId", data.id); window.location.reload(); };
+  const createArchive = async () => { const res = await fetch("https://YOUR-URL.onrender.com/api/archives", { method: "POST" }); const data = await res.json(); setArchiveId(data.id); localStorage.setItem("archiveId", data.id); };
+  const loadSample = async () => { const res = await fetch("https://YOUR-URL.onrender.com/api/archives/sample", { method: "POST" }); const data = await res.json(); setArchiveId(data.id); localStorage.setItem("archiveId", data.id); window.location.reload(); };
 
   return (
     <BrowserRouter>

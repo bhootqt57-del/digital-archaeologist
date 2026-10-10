@@ -7,8 +7,8 @@ export default function DuplicateDetective({ archiveId }: { archiveId: string | 
 
   useEffect(() => {
     if (archiveId) {
-      fetch(`/api/archives/${archiveId}/duplicates`).then(r => r.json()).then(d => setDuplicates(d.duplicateGroups || []));
-      fetch(`/api/archives/${archiveId}`).then(r => r.json()).then(d => setFiles(d.files || []));
+      fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}/duplicates`).then(r => r.json()).then(d => setDuplicates(d.duplicateGroups || []));
+      fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}`).then(r => r.json()).then(d => setFiles(d.files || []));
     }
   }, [archiveId]);
 

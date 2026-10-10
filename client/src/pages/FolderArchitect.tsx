@@ -6,13 +6,13 @@ export default function FolderArchitect({ archiveId }: { archiveId: string | nul
   const [analyzing, setAnalyzing] = useState(false);
 
   const fetchRecs = () => {
-    if (archiveId) fetch(`/api/archives/${archiveId}`).then(r => r.json()).then(d => setRecs(d.recommendations || []));
+    if (archiveId) fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}`).then(r => r.json()).then(d => setRecs(d.recommendations || []));
   };
   useEffect(() => { fetchRecs(); }, [archiveId]);
 
   const handleAnalyze = async () => {
     setAnalyzing(true);
-    await fetch(`/api/archives/${archiveId}/analyse`, { method: "POST" });
+    await fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}/analyse`, { method: "POST" });
     setAnalyzing(false);
     fetchRecs();
   };
