@@ -6,7 +6,7 @@ export default function Overview({ archiveId }: { archiveId: string | null }) {
 
   useEffect(() => {
     if (archiveId) {
-      fetch(`https://YOUR-URL.onrender.com/api/archives/${archiveId}`).then(r => r.json()).then(setData);
+      fetch(`https://digital-archaeologist-jxq5.onrender.com/api/archives/${archiveId}`).then(r => r.json()).then(setData);
     }
   }, [archiveId]);
 
